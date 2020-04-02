@@ -1,4 +1,6 @@
 const Event=require('../../models/event');
+const User=require('../../models/user');
+
 const {dateToString}=require('../../helpers/date');
 const {user}=require('./merge');
 const {transformEvent}=require('./merge');
@@ -17,22 +19,26 @@ module.exports={
             throw err;
         }
     },
-    createEvent:async (args) =>{
-     try{
+    createEvent:async (args,req) =>{
+       if(!req.isAuth)
+       {
+           throw new Error('Unauthenticated');
+       }
         const event=new Event({
         title:args.eventinput.title,
         description:args.eventinput.description,
         price:+args.eventinput.price,        
         date:new Date(args.eventinput.date),
-        creator:'5e836a1adf90c86e68e79e4c'      
+        creator:req.userId      
     })
     let createdEvent;
+    try{
        const result= await event.save();
         createdEvent={ ...result._doc,
         date:dateToString(event._doc.date),
         creator:user.bind(this,event._doc.creator) 
         };
-           const creator= await User.findById('5e836a1adf90c86e68e79e4c');  
+           const creator= await User.findById(req.userId);  
         
             if(!creator)
             {
