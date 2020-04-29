@@ -15,17 +15,3 @@
     margin-top:0.3rem;
 }
 
-.form-control{
-    margin-bottom: 1rem;
-}
-
-.form-action button{
-  color:#fff;
-  background-color: #0779e4;
-  font:inherit;
-  border: 1px solid #0779e4;
-  border-radius: 5px;
-  padding:3px 5px;
-  margin-right:1rem;
-  cursor:pointer;
-}
