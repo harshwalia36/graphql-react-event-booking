@@ -10,10 +10,10 @@ module.exports={
     events: async()=>{   //Resolver is  just a function which is called for u by the express-graphql pacakge at the end when the incoming request looks for the property events
      try{
           const events=await Event.find();
-            const returnedvents= events.map(event => {
-                return transformEvent(event);                                            // ,creator :{...event._doc.creator}
-            });
-            return returnedvents;
+          return events.map(event => {
+            return transformEvent(event);
+          });
+            
         }
         catch(err){
             throw err;
@@ -34,10 +34,7 @@ module.exports={
     let createdEvent;
     try{
        const result= await event.save();
-        createdEvent={ ...result._doc,
-        date:dateToString(event._doc.date),
-        creator:user.bind(this,event._doc.creator) 
-        };
+        createdEvent=transformEvent(result);
            const creator= await User.findById(req.userId);  
         
             if(!creator)

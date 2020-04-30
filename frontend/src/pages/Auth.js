@@ -57,6 +57,7 @@ class AuthPage extends Component {
           }
           
           
+          
           fetch('http://localhost:8000/graphql', {
               method:'POST',    //graphql request are always POST and by default it sends in GET
               body:JSON.stringify(requestBody),

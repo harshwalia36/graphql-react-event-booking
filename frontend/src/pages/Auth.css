@@ -5,8 +5,9 @@
 }
 
 .form-control label,
-.form-control input{
-   width:50%;
+.form-control #email,
+.form-control #password{
+   width:60%;
    display:block;
 }
 

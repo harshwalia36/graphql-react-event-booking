@@ -40,13 +40,15 @@ const user= (userId) => {               //function which will return the user by
     })
 }
 
-const transformEvent=(event) =>{
-    return{
-        ...event._doc,
-        date:dateToString(event._doc.date),
-        creator:user.bind(this,event.creator)
-    }
-}
+const transformEvent = event => {
+    return {
+      ...event._doc,
+      _id: event.id,
+      date: dateToString(event._doc.date),
+      creator: user.bind(this, event.creator)
+    };
+  };
+  
 
 exports.transformEvent=transformEvent;
 exports.user=user;
