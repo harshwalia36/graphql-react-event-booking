@@ -1,0 +1,18 @@
+.auth-form{
+    width:40rem;
+    max-width: 80%;
+    margin:5rem auto;
+}
+
+.form-control label,
+.form-control #email,
+.form-control #password{
+   width:60%;
+   display:block;
+}
+
+.form-control label{
+    margin-bottom: 0.5rem;
+    margin-top:0.3rem;
+}
+
