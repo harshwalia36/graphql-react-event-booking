@@ -1,8 +1,10 @@
 .auth-form{
     width:40rem;
     max-width: 80%;
-    margin:5rem auto;
+    margin:3rem auto;
+    
 }
+
 
 .form-control label,
 .form-control #email,
@@ -11,8 +13,16 @@
    display:block;
 }
 
+
 .form-control label{
     margin-bottom: 0.5rem;
     margin-top:0.3rem;
+}
+.headingAuth{
+    position: relative;
+    left:25%;
+    margin: 0.3rem auto;
+    color:rgb(43, 0, 143);
+    text-shadow: blueviolet;
 }
 

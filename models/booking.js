@@ -1,19 +1,19 @@
-const mongoose=require('mongoose');
+const mongoose = require('mongoose');
 
-const Schema=mongoose.Schema;
+const Schema = mongoose.Schema;
 
-const bookingSchema=new Schema(
-    {
-        event:{
-            type:Schema.Types.ObjectId,
-            ref:'Event'
-        },
-        user:{
-            type:Schema.Types.ObjectId,
-            ref:'User'
-        }
+const bookingSchema = new Schema(
+  {
+    event: {
+      type: Schema.Types.ObjectId,
+      ref: 'Event',
     },
-    {timestamps: true}         //this will automTICALLY add the created time and updated time of a booking.
-) 
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
+  },
+  { timestamps: true } //this will automTICALLY add the created time and updated time of a booking.
+);
 
-module.exports=mongoose.model('Booking',bookingSchema);
+module.exports = mongoose.model('Booking', bookingSchema);

@@ -84,7 +84,11 @@ class AuthPage extends Component {
       }
     render() {
         return(
-            <form class='auth-form' onSubmit={this.submitHandler}>
+            <React.Fragment>
+               <h1 className="headingAuth">
+            {this.state.isLogin ? ('Login Page'):('SignUp page' )}
+            </h1>
+            <form className='auth-form' onSubmit={this.submitHandler}>
               < div className='form-control'>
                   <label htmlFor="email">Email</label>
                   <input type="email" id="email" ref={this.emailElem} />
@@ -99,6 +103,8 @@ class AuthPage extends Component {
 
               </div>
             </form>
+            </React.Fragment>
+        
         )
     }
 }

@@ -9,7 +9,7 @@ const mainNavigation =  props => (  //this is a functional component so static t
                 return(
                     <header className='main-navigation'>
                         <div className="main-navigation_logo">
-                            <h1>EasyEvent</h1>
+                            <h1 className="main-heading">EasyEvent</h1>
                         </div>
                         <div className="main-navigation_items">
                             <ul>

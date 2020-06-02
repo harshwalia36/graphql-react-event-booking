@@ -57,3 +57,11 @@
     color: #5101d1;
     border-radius: 5px;
 }
+
+.main-heading{
+    color:#5101d1;
+    font-weight: bolder;
+    background-color: #fff;
+    padding:0.2rem;
+    border-radius: 0.5rem;
+}

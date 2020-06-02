@@ -44,7 +44,7 @@ class App extends Component {
                 {!this.state.token && (
                   <Route path="/auth" component={AuthPage} />
                 )}
-                <Route path="/events" component={EventsPage} />     //event page doesnot require authentication
+                <Route path="/events" component={EventsPage} />     // event page doesnot require authentication
                 {this.state.token && (
                   <Route path="/bookings" component={BookingsPage} />
                 )}
