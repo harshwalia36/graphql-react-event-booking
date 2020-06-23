@@ -73,15 +73,19 @@ class AuthPage extends Component {
               return res.json();
           })
           .then(resData =>{
+              console.log(resData.data);
               if(resData.data.login.token)
               {
                   this.context.login(resData.data.login.token,resData.data.login.userId,resData.data.login.tokenExpiration);
+                  console.log('user created');
               }
+             
           })
           .catch(err =>{
               console.log(err);
           });
       }
+    
     render() {
         return(
             <React.Fragment>
@@ -98,7 +102,7 @@ class AuthPage extends Component {
                   <input type="password" id="password" ref={this.passwordElem} />
               </div>
               <div className='form-action'>
-                  <button className="btn" type="submit">Submit</button>
+                  <button className="btn" type="submit" >Submit</button>
                   <button className="btn" type='button' onClick={this.switchModeHandler}>Switch to {this.state.isLogin ? 'SignUp' : 'Login'}</button>
 
               </div>

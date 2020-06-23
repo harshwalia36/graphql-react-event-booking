@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const graphqlHttp = require('express-graphql');
 const mongoose = require('mongoose');
 
+const path = require('path');
 const graphQLSchema = require('./graphql/schema/index.js');
 const graphQLResolvers = require('./graphql/resolvers/index');
 const isAuth = require('./middileware/is-auth');
@@ -37,9 +38,13 @@ app.use(
 
 app.use(express.static('frontend/build'));
 
+app.get('*', (req ,res)=>{
+  res.sendFile(path.join(__dirname, 'frontend','build','index.html'));
+});
+
 mongoose
   .connect(
-    `mongodb+srv://harshwalia:Hwalia123@cluster0-zvhey.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`,
+    `mongodb+srv://harshwalia:Hwalia123@cluster0-zvhey.mongodb.net/event-react-dev?retryWrites=true&w=majority`,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {
