@@ -36,24 +36,21 @@ app.use(
     graphiql: true,
   })
 );
-if (process.env.NODE_ENV == "production"){
-app.use(express.static('frontend/build'));
+// eslint-disable-next-line eqeqeq
+if (process.env.NODE_ENV == 'production') {
+  app.use(express.static('frontend/build'));
 
-app.get('*', (req ,res)=>{
-  res.sendFile(path.join(__dirname, 'frontend','build','index.html'));
-});
-
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+  });
 }
 
-console.log(process.env.MONGO_PASSWORD);
+const url = process.env.DB_HOST;
 
-const url =process.env.DB_HOST;
+console.log(process.env.MONGODB_URI);
 
 mongoose
-  .connect(
-    url,
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+  .connect(process.env.MONGODB_URI || url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server listening on port ${PORT}.`);
