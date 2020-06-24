@@ -9,7 +9,7 @@ type Booking {
     updatedAt: String!
 }
 
-type Event {
+type Event { 
     _id:ID!
     title: String!
     description:String!
