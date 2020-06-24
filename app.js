@@ -47,7 +47,7 @@ if (process.env.NODE_ENV == 'production') {
 
 const url = process.env.DB_HOST;
 
-console.log(process.env.MONGODB_URI);
+// console.log(process.env.MONGODB_URI);
 
 mongoose
   .connect( url, { useNewUrlParser: true, useUnifiedTopology: true })
