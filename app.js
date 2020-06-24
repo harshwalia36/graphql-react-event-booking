@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -9,6 +8,7 @@ const path = require('path');
 const graphQLSchema = require('./graphql/schema/index.js');
 const graphQLResolvers = require('./graphql/resolvers/index');
 const isAuth = require('./middileware/is-auth');
+require('dotenv').config();
 
 // graphqlHttp here happened to be a function that can we used in a place where express expects a middileware function
 
@@ -45,9 +45,11 @@ app.get('*', (req ,res)=>{
 
 console.log(process.env.MONGO_PASSWORD);
 
+const url =process.env.DB_HOST;
+
 mongoose
   .connect(
-    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-zvhey.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`,
+    url,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {
