@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -42,9 +43,11 @@ app.get('*', (req ,res)=>{
   res.sendFile(path.join(__dirname, 'frontend','build','index.html'));
 });
 
+console.log(process.env.MONGO_PASSWORD);
+
 mongoose
   .connect(
-    `mongodb+srv://harshwalia:Hwalia123@cluster0-zvhey.mongodb.net/event-react-dev?retryWrites=true&w=majority`,
+    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-zvhey.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {
