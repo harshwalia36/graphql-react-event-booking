@@ -58,7 +58,7 @@ class AuthPage extends Component {
           
           
           
-          fetch('http://localhost:8000/graphql', {
+          fetch('https://event-booking-react-app.herokuapp.com/graphql', {
               method:'POST',    //graphql request are always POST and by default it sends in GET
               body:JSON.stringify(requestBody),
               headers:{
